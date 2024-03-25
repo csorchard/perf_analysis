@@ -23,10 +23,23 @@ go tool pprof -http=:8080 heap.pprof
 ## Heap View
 
 ### BurntCarrot HeapView
-
-1. Download [heapview](https://github.com/burntcarrot/heapview). Build source using `go build`.
-2. Run `./heapview -file=/Users/arjunsunilkumar/GolandProjects/matrixone/heapdump.out`
-3. Go to `http://localhost:8080/`
+1. Setup code
+```go
+        defer func() {
+            f, err := os.Create("heapdump.out")
+            if err != nil {
+                panic("Could not open file for writing:" + err.Error())
+            } else {
+                runtime.GC()
+                debug.WriteHeapDump(f.Fd())
+                f.Close()
+            }
+            os.Exit(1)
+        }()
+```
+2. Download [heapview](https://github.com/burntcarrot/heapview). Build source using `go build`.
+3. Run `./heapview -file=/Users/arjunsunilkumar/GolandProjects/matrixone/heapdump.out`
+4. Go to `http://localhost:8080/`
 
 ### Heap Spurr
 
