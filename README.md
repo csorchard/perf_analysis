@@ -20,6 +20,20 @@ curl -o allocs.pprof "http://localhost:9876/debug/pprof/allocs?seconds=30"
 go tool pprof -http=:8080 heap.pprof
 ```
 
+## Git Bisect
+
+```shell
+
+git bisect start
+git bisect good 8e041398486f167cf53b75b28706107c6d820b3d
+git bisect bad 9b39aae4865c60b5e4f9acb8bea4e1bcb5476995
+
+git bisect good
+git bisect bad
+
+
+```
+
 ## Heap View
 
 ### BurntCarrot HeapView
