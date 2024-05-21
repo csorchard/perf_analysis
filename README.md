@@ -97,3 +97,22 @@ func main() {
 ```
 
 2. Go to http://localhost:18066/debug/statsview
+
+
+## MO
+
+1. Hotspot Analysis
+![image](https://github.com/csorchard/perf_analysis/assets/9638314/b9f52181-f525-42e2-ae2e-ee279fd81238)
+
+2. Finding statement id
+```sql
+select * from system.statement_info ssh where `statement` like "%t5%"
+
+select * from system.statement_info si where statement_id  = "018f99d3-414d-7b10-9a57-a8eaa38c7814";
+
+select * from system.statement_info where `statement` like "%SELECT a FROM t5%" order by request_at desc;
+
+```
+![image](https://github.com/csorchard/perf_analysis/assets/9638314/cd99cc9f-3e4b-417a-a76a-e8ca3520ecaa)
+
+3. 
