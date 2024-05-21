@@ -115,4 +115,13 @@ select * from system.statement_info where `statement` like "%SELECT a FROM t5%" 
 ```
 ![image](https://github.com/csorchard/perf_analysis/assets/9638314/cd99cc9f-3e4b-417a-a76a-e8ca3520ecaa)
 
-3. 
+3. Golang Trace
+
+```go
+curl -o trace.out http://localhost:9876/debug/pprof/trace?seconds=30
+
+go tool trace trace.out
+
+    _, task := gotrace.NewTask(context.TODO(), "pipeline.Compile")
+
+```
