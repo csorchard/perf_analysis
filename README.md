@@ -117,11 +117,21 @@ select * from system.statement_info where `statement` like "%SELECT a FROM t5%" 
 
 3. Golang Trace
 
-```go
+```shell
 curl -o trace.out http://localhost:9876/debug/pprof/trace?seconds=30
 
 go tool trace trace.out
 
-    _, task := gotrace.NewTask(context.TODO(), "pipeline.Compile")
+-- go code
+_, task := gotrace.NewTask(context.TODO(), "pipeline.Compile")
+
+```
+
+4. GC control
+
+```shell
+make debug
+
+GODEBUG=invalidptr=2,cgocheck=2,madvdontneed=1 GOGC=2 GOMEMLIMIT=10MiB ./mo-service -debug-http :9876 -launch ./etc/launch-tae-CN-tae-DN/launch.toml >out.log  2>err.log
 
 ```
