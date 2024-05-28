@@ -108,6 +108,7 @@ func main() {
 
 2. Go to http://localhost:18066/debug/statsview
 
+![img.png](img.png)
 
 ## MO
 
@@ -136,6 +137,8 @@ go tool trace trace.out
 _, task := gotrace.NewTask(context.TODO(), "pipeline.Compile")
 
 ```
+
+Looks: https://github.com/matrixorigin/matrixone/issues/16124#issuecomment-2122027022
 
 4. GC control
 
