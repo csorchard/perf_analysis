@@ -1,4 +1,14 @@
 # Golang Performance Analysis
+<!-- TOC -->
+* [Golang Performance Analysis](#golang-performance-analysis)
+  * [Pprof](#pprof)
+  * [Git Bisect](#git-bisect)
+  * [Heap View](#heap-view)
+    * [BurntCarrot HeapView](#burntcarrot-heapview)
+    * [Heap Spurr](#heap-spurr)
+  * [Stats Viewer](#stats-viewer)
+  * [MO](#mo)
+<!-- TOC -->
 
 ## Pprof
 
