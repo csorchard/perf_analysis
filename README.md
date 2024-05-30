@@ -148,3 +148,6 @@ make debug
 GODEBUG=invalidptr=2,cgocheck=2,madvdontneed=1 GOGC=2 GOMEMLIMIT=10MiB ./mo-service -debug-http :9876 -launch ./etc/launch-tae-CN-tae-DN/launch.toml >out.log  2>err.log
 
 ```
+5. Chucked Heap Profile
+
+https://github.com/arjunsk/go_profile_serde
